@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elenco Nova Marca — Banco de Personagens</title>
+  
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrap">
+    
+    <header class="masthead">
+      <div class="masthead__brand">
+        <div class="masthead__logo-wrap">
+          <img src="./img/logo-personow.svg" alt="personowfit" class="masthead__logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+          <span id="logo-fallback" class="masthead__logo-fallback">Nova Marca<span>fit</span></span>
+        </div>
+        <div class="masthead__eyebrow">Direção de Arte & Fotografia</div>
+      </div>
+      <div class="masthead__meta">
+        <span class="rule-count" id="contador">00</span>
+        <p>personagens aprovados no elenco oficial</p>
+      </div>
+    </header>
+
+    <p class="intro">
+      O elenco <strong>Nova Marca</strong> é o ponto de partida de cada cena. Escolha um personagem para manter a consistência de rosto e anatomia, crie variações ou utilize a estrutura para solicitar um personagem novo do zero.
+    </p>
+
+    <div class="aviso">
+      <strong>Instrução para a Equipe:</strong> Ao escolher um personagem, certifique-se de ter o arquivo de imagem correspondente salvo no seu computador para enviar como referência matriz no gerador de IA (Magnific, Higgsfield, Kling, etc.).
+    </div>
+
+    <div class="controls">
+      <input type="text" id="search-input" class="controls__search" placeholder="Buscar por nome do personagem..." oninput="filtrarElenco()">
+      <div class="controls__filters" id="filter-editorias">
+        <button class="filter-btn active" onclick="filtrarEditoria('todas', this)">Todas</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Institucional', this)">Institucional</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Educativo', this)">Educativo</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Relacionamento', this)">Relacionamento</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Inspiração', this)">Inspiração</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Prova social', this)">Prova Social</button>
+        <button class="filter-btn" onclick="filtrarEditoria('Aquisição', this)">Aquisição</button>
+      </div>
+    </div>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      <span>Nova Marca — Acompanhamento real e proximidade no treino.</span>
+      <span>Uso interno · Direção de Fotografia</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./js/characters.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
